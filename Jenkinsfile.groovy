@@ -5,7 +5,7 @@ properties([parameters([string(defaultValue: '127.0.0.1', description: 'Please g
         sh "ssh    ec2-user@${IP}   sudo yum install git -y"
     }
     stage("Clone a repo"){
-        git 'https://github.com/farrukh90/flask-examples.git'
+        git 'git@github.com:vovatran1993/flask-examples.git'
     }
     stage("Copy files"){
         sh "scp * ec2-user@${IP}:/tmp/"

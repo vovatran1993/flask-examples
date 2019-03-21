@@ -11,7 +11,7 @@ properties([parameters([string(defaultValue: '127.0.0.1', description: 'Please g
         sh "scp  -r * ec2-user@${IP}:/tmp/"
     }
     stage("Install requirements"){
-        sh "ssh ec2-user@${IP}   sudo pip install -r /tmp/requirements.txt"
+        sh "sudo ssh ec2-user@${IP}   sudo pip install -r /tmp/requirements.txt"
     }
     stage("Run App"){
         sh "ssh ec2-user@${IP}  python  /tmp/01-hello-world/hello.py"
